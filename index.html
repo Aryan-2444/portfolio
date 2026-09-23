@@ -3,62 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aryan Raj — Creative Developer & Digital Builder</title>
-<meta name="description" content="Aryan Raj — Computer Science & Engineering student, creative developer and digital builder crafting ambitious web experiences.">
-<meta name="theme-color" content="#030014">
+<title>Aryan Raj — Creative Developer & AI Builder</title>
+<meta name="description" content="Aryan Raj — Computer Science student, creative developer and AI builder crafting interactive web experiences, AI products, and digital experiences where technology meets design.">
+<meta name="theme-color" content="#030303">
 
-<!-- Open Graph / Social Cards -->
+<!-- Open Graph / Social Meta -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Aryan Raj — Creative Developer & Digital Builder">
-<meta property="og:description" content="B.Tech Computer Science & Engineering student, developer and creator building ambitious digital experiences.">
+<meta property="og:title" content="Aryan Raj — Creative Developer & AI Builder">
+<meta property="og:description" content="I build interactive web experiences, AI-powered products and digital experiences where technology meets design.">
 <meta property="og:image" content="aryan-photo.jpg">
 
-<!-- Google Fonts -->
+<!-- Google Fonts: Anton (Display), Space Grotesk (Body), IBM Plex Mono (Tech/Meta), Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Three.js for Signature 3D Element -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
 /* ==========================================================================
-   DESIGN TOKENS & RESET — CINEMATIC EDITORIAL SYSTEM
+   DESIGN TOKENS — HIGH CONTRAST (BLACK + WHITE + ACID LIME)
    ========================================================================== */
 :root {
-  --bg: #030014;
-  --bg-surface: rgba(12, 10, 28, 0.72);
-  --bg-surface-elevated: rgba(18, 14, 40, 0.88);
-  --bg-card: rgba(16, 13, 38, 0.48);
-  --bg-card-hover: rgba(24, 19, 54, 0.75);
+  --bg-primary: #030303;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #121212;
+  --bg-card: rgba(14, 14, 14, 0.78);
+  --bg-card-hover: rgba(22, 22, 22, 0.92);
+  --bg-surface: rgba(8, 8, 8, 0.88);
   
   /* Intentional Acid-Lime Accent */
   --accent: #CCFF00;
-  --accent-glow: rgba(204, 255, 0, 0.22);
+  --accent-glow: rgba(204, 255, 0, 0.25);
   --accent-subtle: rgba(204, 255, 0, 0.08);
-  --accent-hover: #e1ff40;
+  --accent-hover: #dbff33;
   
-  /* Text & Contrast Hierarchy */
+  /* High-Contrast Typography Hierarchy */
   --text-primary: #FFFFFF;
-  --text-secondary: #9DA3B4;
-  --text-muted: #5E6478;
-  --text-inverse: #030014;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-muted: rgba(255, 255, 255, 0.32);
+  --text-inverse: #030303;
   
-  /* Hairline Borders & Rules */
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --line-accent: rgba(204, 255, 0, 0.42);
+  /* Editorial Hairlines */
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.22);
+  --line-accent: rgba(204, 255, 0, 0.45);
   
-  /* Typography System */
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  /* Fonts */
+  --font-display: 'Anton', 'Impact', 'Arial Black', sans-serif;
   --font-body: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
   
-  /* Motion & Easing */
+  /* Motion Constants */
   --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-fast: 0.2s var(--ease-cinema);
-  --transition-normal: 0.38s var(--ease-cinema);
-  --transition-slow: 0.7s var(--ease-cinema);
+  --transition-fast: 0.18s var(--ease-cinema);
+  --transition-normal: 0.35s var(--ease-cinema);
+  --transition-slow: 0.65s var(--ease-cinema);
   
-  /* Container Constraints */
   --container-max: 1360px;
   --container-padding: clamp(20px, 4.5vw, 64px);
 }
@@ -71,7 +74,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -80,7 +83,7 @@ html {
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -88,50 +91,50 @@ body {
   line-height: 1.6;
 }
 
-/* Cinematic Grain / Noise Texture */
+/* Subtle Cinematic Film Grain (Ultra-Lightweight) */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 99;
-  opacity: 0.038;
+  opacity: 0.032;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Subtle Canvas Background */
-#cosmos {
+/* Restrained Geometric Grid & Background Canvas */
+#bgCanvas {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: -5;
   pointer-events: none;
-  background: var(--bg);
+  background: var(--bg-primary);
 }
 
-/* Ambient Radial Glow */
-.ambient-glow {
+/* Minimal Subtle Ambient Lighting */
+.ambient-glow-top {
   position: fixed;
-  top: 15%;
-  right: -10%;
-  width: 700px;
-  height: 700px;
+  top: 5%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(204, 255, 0, 0.035) 0%, rgba(3, 0, 20, 0) 70%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(204, 255, 0, 0.035) 0%, transparent 70%);
+  filter: blur(90px);
   pointer-events: none;
   z-index: -4;
 }
 
-.ambient-glow-bottom {
+.ambient-glow-mid {
   position: fixed;
-  bottom: 10%;
-  left: -15%;
-  width: 800px;
-  height: 800px;
+  top: 50%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, rgba(3, 0, 20, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.015) 0%, transparent 70%);
   filter: blur(100px);
   pointer-events: none;
   z-index: -4;
@@ -147,20 +150,20 @@ body::after {
   pointer-events: none;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.1s ease, width 0.22s ease, height 0.22s ease, background-color 0.22s ease;
   mix-blend-mode: difference;
 }
 
 .custom-cursor-follower {
   position: fixed;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border: 1px solid rgba(204, 255, 0, 0.45);
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
 }
 
 body.cursor-hover .custom-cursor {
@@ -170,8 +173,8 @@ body.cursor-hover .custom-cursor {
 }
 
 body.cursor-hover .custom-cursor-follower {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-color: var(--accent);
   background: rgba(204, 255, 0, 0.05);
 }
@@ -182,7 +185,7 @@ body.cursor-hover .custom-cursor-follower {
   }
 }
 
-/* Top Progress Line */
+/* Scroll Progress Line */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -190,8 +193,8 @@ body.cursor-hover .custom-cursor-follower {
   height: 2px;
   width: 0%;
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-  z-index: 200;
+  box-shadow: 0 0 10px var(--accent);
+  z-index: 250;
   transition: width 0.08s linear;
 }
 
@@ -229,7 +232,7 @@ button {
 }
 
 /* ==========================================================================
-   NAVIGATION & HEADER
+   NAVIGATION & MINIMAL HEADER
    ========================================================================== */
 .site-header {
   position: fixed;
@@ -239,28 +242,31 @@ button {
   z-index: 150;
   padding: 0 var(--container-padding);
   pointer-events: none;
+  transition: padding var(--transition-normal);
 }
 
 .header-container {
   max-width: var(--container-max);
   margin: 0 auto;
-  height: 60px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  pointer-events: auto;
+  transition: background var(--transition-normal), border-color var(--transition-normal), backdrop-filter var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* On-Scroll Header State */
+.site-header.scrolled .header-container {
   background: var(--bg-surface);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  pointer-events: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-  transition: border-color var(--transition-fast), background var(--transition-fast);
-}
-
-.header-container:hover {
-  border-color: var(--line-strong);
+  border-color: var(--line);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
 }
 
 .brand-logo {
@@ -269,7 +275,7 @@ button {
   gap: 8px;
   font-family: var(--font-display);
   font-size: 24px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--text-primary);
   transition: transform var(--transition-fast);
 }
@@ -306,7 +312,7 @@ button {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast);
   position: relative;
   padding: 6px 0;
 }
@@ -340,9 +346,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line-strong);
   font-family: var(--font-mono);
   font-size: 11px;
@@ -357,7 +363,7 @@ button {
   color: var(--text-inverse);
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px var(--accent-glow);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .btn-menu-trigger {
@@ -393,16 +399,15 @@ button {
   height: 1.5px;
   background: currentColor;
   width: 100%;
-  transition: transform var(--transition-fast);
 }
 
 /* ==========================================================================
-   SIDE DRAWER / EDITORIAL OVERLAY MENU
+   SIDE DRAWER / FULLSCREEN MOBILE MENU
    ========================================================================== */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(3, 0, 20, 0.85);
+  background: rgba(3, 3, 3, 0.88);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   z-index: 300;
@@ -420,10 +425,10 @@ button {
   position: fixed;
   top: 0;
   right: 0;
-  width: min(540px, 100%);
+  width: min(520px, 100%);
   height: 100vh;
   height: 100dvh;
-  background: var(--bg-surface-elevated);
+  background: #080808;
   border-left: 1px solid var(--line);
   z-index: 310;
   padding: 40px clamp(24px, 5vw, 48px);
@@ -469,7 +474,7 @@ button {
 .drawer-nav-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   margin: 36px 0;
 }
 
@@ -478,7 +483,7 @@ button {
   align-items: baseline;
   gap: 16px;
   font-family: var(--font-display);
-  font-size: clamp(38px, 7vw, 56px);
+  font-size: clamp(38px, 7vw, 54px);
   line-height: 0.95;
   letter-spacing: 0.02em;
   color: var(--text-primary);
@@ -508,7 +513,7 @@ button {
 .drawer-status-box {
   padding: 16px 20px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-secondary);
   border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
@@ -538,7 +543,7 @@ button {
 }
 
 /* ==========================================================================
-   MAIN LAYOUT CONTAINER & SECTIONS
+   LAYOUT CONTAINERS & SECTION HEADERS
    ========================================================================== */
 .layout-container {
   max-width: var(--container-max);
@@ -548,13 +553,12 @@ button {
 }
 
 .section-block {
-  padding: clamp(90px, 12vw, 160px) 0;
+  padding: clamp(90px, 12vw, 150px) 0;
   position: relative;
 }
 
-/* Editorial Section Header */
 .editorial-header {
-  margin-bottom: clamp(48px, 7vw, 80px);
+  margin-bottom: clamp(48px, 7vw, 76px);
 }
 
 .editorial-header-top {
@@ -593,7 +597,7 @@ button {
 
 .editorial-title {
   font-family: var(--font-display);
-  font-size: clamp(52px, 8.5vw, 110px);
+  font-size: clamp(52px, 8.5vw, 105px);
   line-height: 0.88;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -601,15 +605,15 @@ button {
 }
 
 .editorial-subtitle {
-  max-width: 580px;
-  margin-top: 20px;
+  max-width: 600px;
+  margin-top: 18px;
   font-size: clamp(14px, 1.6vw, 17px);
   color: var(--text-secondary);
   line-height: 1.75;
 }
 
 /* ==========================================================================
-   HERO SECTION — CINEMATIC FULL SCREEN
+   HERO SECTION — CINEMATIC SCRAMBLE/DECODE TEXT
    ========================================================================== */
 .hero-section {
   min-height: 100vh;
@@ -617,8 +621,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: clamp(120px, 16vh, 160px);
-  padding-bottom: clamp(60px, 8vh, 100px);
+  padding-top: clamp(120px, 15vh, 150px);
+  padding-bottom: clamp(60px, 8vh, 90px);
   position: relative;
 }
 
@@ -626,7 +630,7 @@ button {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: clamp(40px, 6vw, 90px);
+  gap: clamp(40px, 6vw, 84px);
   position: relative;
   z-index: 10;
 }
@@ -642,7 +646,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
@@ -652,7 +656,7 @@ button {
   gap: 8px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-secondary);
   border: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: 10px;
@@ -677,15 +681,28 @@ button {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(68px, 12vw, 155px);
-  line-height: 0.82;
-  letter-spacing: -0.01em;
+  font-size: clamp(64px, 11vw, 145px);
+  line-height: 0.84;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
-.hero-headline-line {
+.hero-headline-static {
   display: block;
+}
+
+.hero-headline-rotating {
+  display: block;
+  min-height: 1.1em;
+}
+
+/* Scramble Text Accent Element */
+.scramble-word {
+  color: var(--accent);
+  display: inline-block;
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
 }
 
 .hero-description {
@@ -693,14 +710,14 @@ button {
   line-height: 1.8;
   color: var(--text-secondary);
   max-width: 540px;
-  margin-bottom: 38px;
+  margin-bottom: 36px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .btn-primary {
@@ -708,7 +725,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 30px;
+  padding: 15px 28px;
   border-radius: 999px;
   background: var(--accent);
   color: var(--text-inverse);
@@ -718,15 +735,16 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   border: 1px solid var(--accent);
-  box-shadow: 0 10px 35px var(--accent-glow);
+  box-shadow: 0 10px 30px var(--accent-glow);
   transition: all var(--transition-normal);
 }
 
 .btn-primary:hover {
   background: #ffffff;
   border-color: #ffffff;
+  color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 16px 45px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 14px 40px rgba(255, 255, 255, 0.22);
 }
 
 .btn-secondary {
@@ -734,16 +752,15 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 28px;
+  padding: 15px 26px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   border: 1px solid var(--line-strong);
-  backdrop-filter: blur(16px);
   transition: all var(--transition-normal);
 }
 
@@ -754,56 +771,61 @@ button {
   transform: translateY(-3px);
 }
 
-/* Editorial Hero Portrait Framing */
-.hero-portrait-frame {
+/* ==========================================================================
+   HERO VISUAL — SIGNATURE MONOCHROME PORTRAIT + 3D SCULPTURE
+   ========================================================================== */
+.hero-visual-col {
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  perspective: 1200px;
+  justify-content: center;
 }
 
-.portrait-canvas-wrapper {
+.hero-visual-card {
   position: relative;
   width: 100%;
   max-width: 440px;
   aspect-ratio: 4 / 5;
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid var(--line-strong);
-  background: #060515;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transform-style: preserve-3d;
-  transition: transform var(--transition-slow), border-color var(--transition-normal);
+  border: 1px solid var(--line);
+  background: #070707;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: border-color var(--transition-normal), transform var(--transition-slow);
 }
 
-.portrait-canvas-wrapper:hover {
+.hero-visual-card:hover {
   border-color: var(--line-accent);
 }
 
-.portrait-img {
+.portrait-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  filter: grayscale(100%) contrast(1.22) brightness(0.92);
+  filter: grayscale(100%) contrast(1.25) brightness(0.92);
   transition: transform 0.8s var(--ease-cinema), filter 0.8s var(--ease-cinema);
 }
 
-.portrait-canvas-wrapper:hover .portrait-img {
+.hero-visual-card:hover .portrait-photo {
   transform: scale(1.03);
-  filter: grayscale(100%) contrast(1.28) brightness(0.96);
+  filter: grayscale(100%) contrast(1.3) brightness(0.96);
 }
 
-/* Editorial Coordinates & Frame Badges */
-.portrait-overlay-gradient {
+/* 3D Canvas Overlay on Portrait Corner */
+#threeCanvas {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(3, 0, 20, 0) 50%, rgba(3, 0, 20, 0.85) 100%),
-              radial-gradient(ellipse at center, transparent 40%, rgba(3, 0, 20, 0.4) 100%);
+  top: 12px;
+  right: 12px;
+  width: 110px;
+  height: 110px;
+  z-index: 6;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--line);
   pointer-events: none;
-  z-index: 3;
 }
 
 .portrait-corner-tag {
@@ -813,8 +835,8 @@ button {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-muted);
-  z-index: 4;
-  padding: 12px 16px;
+  z-index: 5;
+  padding: 14px 18px;
   pointer-events: none;
 }
 
@@ -828,13 +850,12 @@ button {
   z-index: 5;
   padding: 12px 18px;
   border-radius: 16px;
-  background: rgba(3, 0, 20, 0.82);
+  background: rgba(5, 5, 5, 0.88);
   backdrop-filter: blur(18px);
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
 .portrait-status-badge strong {
@@ -852,47 +873,6 @@ button {
   font-family: var(--font-mono);
 }
 
-/* Subtle Hero Scroll Indicator */
-.hero-scroll-indicator {
-  margin-top: clamp(40px, 8vh, 70px);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
-}
-
-.hero-scroll-indicator:hover {
-  color: var(--accent);
-}
-
-.scroll-line-container {
-  width: 48px;
-  height: 1px;
-  background: var(--line);
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-line-fill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: var(--accent);
-  animation: scrollLineMove 2s infinite ease-in-out;
-}
-
-@keyframes scrollLineMove {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
 /* ==========================================================================
    INFINITE MARQUEE TICKER
    ========================================================================== */
@@ -905,8 +885,7 @@ button {
   margin-right: -50vw;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(12, 10, 28, 0.4);
-  backdrop-filter: blur(12px);
+  background: #050505;
   overflow: hidden;
   padding: 18px 0;
 }
@@ -915,7 +894,7 @@ button {
   display: flex;
   width: max-content;
   white-space: nowrap;
-  animation: marqueeScroll 36s linear infinite;
+  animation: marqueeScroll 34s linear infinite;
 }
 
 .marquee-content {
@@ -924,8 +903,8 @@ button {
   gap: 32px;
   padding-right: 32px;
   font-family: var(--font-display);
-  font-size: clamp(20px, 3.2vw, 30px);
-  letter-spacing: 0.1em;
+  font-size: clamp(22px, 3.2vw, 32px);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
@@ -945,7 +924,7 @@ button {
 }
 
 /* ==========================================================================
-   PROJECTS SECTION — EDITORIAL CASE STUDIES (CENTERPIECE)
+   SELECTED WORK — EDITORIAL CASE STUDIES
    ========================================================================== */
 .projects-list {
   display: flex;
@@ -971,26 +950,14 @@ button {
 .project-case:hover {
   border-color: var(--line-accent);
   transform: translateY(-4px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-}
-
-.project-case::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at 100% 0%, rgba(204, 255, 0, 0.06), transparent 70%);
-  pointer-events: none;
-  border-radius: 0 32px 0 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
 }
 
 .project-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .project-number {
@@ -1038,7 +1005,7 @@ button {
   letter-spacing: 0.1em;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-secondary);
   border: 1px solid var(--line);
   color: var(--text-secondary);
   display: inline-flex;
@@ -1105,14 +1072,14 @@ button {
   color: var(--accent);
 }
 
-/* Visual Case Mockup Frame */
+/* Browser Mockup Visuals */
 .project-visual-frame {
   position: relative;
   border-radius: 20px;
   border: 1px solid var(--line);
-  background: rgba(8, 6, 22, 0.95);
+  background: #060606;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   aspect-ratio: 16 / 10;
   display: flex;
   flex-direction: column;
@@ -1120,7 +1087,7 @@ button {
 
 .browser-header {
   height: 38px;
-  background: rgba(18, 14, 40, 0.85);
+  background: #111111;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -1149,7 +1116,7 @@ button {
   font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-  background: rgba(0, 0, 0, 0.35);
+  background: #000;
   padding: 3px 12px;
   border-radius: 6px;
   border: 1px solid var(--line);
@@ -1168,8 +1135,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: radial-gradient(ellipse at 80% 20%, rgba(204, 255, 0, 0.05) 0%, transparent 60%),
-              linear-gradient(135deg, rgba(16, 12, 40, 0.8) 0%, rgba(5, 3, 16, 0.95) 100%);
+  background: linear-gradient(135deg, #0e0e0e 0%, #040404 100%);
 }
 
 .mockup-grid-bg {
@@ -1192,7 +1158,7 @@ button {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .mockup-heading {
@@ -1209,7 +1175,7 @@ button {
   font-family: var(--font-mono);
   font-size: 10px;
   color: #9298ad;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 12px 16px;
@@ -1220,75 +1186,142 @@ button {
 .mockup-code-block span.c-keyword { color: #53d8ff; }
 .mockup-code-block span.c-str { color: #f7a8ff; }
 
-/* Metrics Banner Beneath Projects */
-.project-metrics-grid {
+/* ==========================================================================
+   CURRENTLY BUILDING SECTION
+   ========================================================================== */
+.currently-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  overflow: hidden;
-  margin-top: 56px;
-}
-
-.metric-cell {
-  background: var(--bg-card);
-  padding: clamp(24px, 3.5vw, 36px);
-  backdrop-filter: blur(16px);
-}
-
-.metric-cell strong {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4.5vw, 56px);
-  letter-spacing: 0.04em;
-  color: var(--accent);
-  line-height: 1;
-  display: block;
-}
-
-.metric-cell span {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-top: 8px;
-}
-
-/* ==========================================================================
-   TOOLKIT / STACK SECTION — EDITORIAL STRIPS
-   ========================================================================== */
-.toolkit-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.toolkit-card {
+.currently-card {
   background: var(--bg-card);
   border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: clamp(28px, 4vw, 42px);
-  backdrop-filter: blur(18px);
-  transition: all var(--transition-normal);
+  border-radius: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all var(--transition-normal);
 }
 
-.toolkit-card:hover {
+.currently-card:hover {
   border-color: var(--line-accent);
   transform: translateY(-4px);
   background: var(--bg-card-hover);
 }
 
-.toolkit-card-header {
+.currently-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.currently-status-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.currently-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.currently-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CAPABILITIES / WHAT I BUILD (EDITORIAL LIST)
+   ========================================================================== */
+.capabilities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.capability-item {
+  padding: clamp(24px, 4vw, 36px);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 80px 1.2fr 1.8fr;
+  align-items: center;
+  gap: 24px;
+  transition: all var(--transition-normal);
+}
+
+.capability-item:hover {
+  border-color: var(--line-accent);
+  background: var(--bg-card-hover);
+  transform: translateX(8px);
+}
+
+.capability-index {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+}
+
+.capability-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 36px);
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.capability-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   SKILLS / CATEGORIZED TOOLKIT
+   ========================================================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+}
+
+.skill-category-card:hover {
+  border-color: var(--line-accent);
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+}
+
+.skill-cat-header {
   margin-bottom: 24px;
 }
 
-.toolkit-category-tag {
+.skill-cat-tag {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -1298,51 +1331,149 @@ button {
   display: block;
 }
 
-.toolkit-category-title {
+.skill-cat-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.5vw, 38px);
+  font-size: 32px;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  margin-bottom: 8px;
+  color: #fff;
 }
 
-.toolkit-category-desc {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.toolkit-tags-flow {
+.skill-pills-flow {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.toolkit-pill {
+.skill-pill {
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 8px 14px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--bg-secondary);
   border: 1px solid var(--line);
   color: var(--text-primary);
   transition: all var(--transition-fast);
 }
 
-.toolkit-card:hover .toolkit-pill {
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.toolkit-pill:hover {
+.skill-pill:hover {
   background: var(--accent-subtle);
-  border-color: var(--accent) !important;
+  border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   ABOUT & JOURNEY SECTION — ASYMMETRICAL EDITORIAL
+   ACHIEVEMENTS SECTION — 2026 MAJOR UPDATE
+   ========================================================================== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.achievement-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  padding: clamp(32px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.achievement-card:hover {
+  border-color: var(--line-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle at 100% 0%, rgba(204, 255, 0, 0.07), transparent 70%);
+  pointer-events: none;
+}
+
+.achievement-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.achievement-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.achievement-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.achievement-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5.5vw, 56px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.achievement-event-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.achievement-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.btn-view-certificate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--line-strong);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: fit-content;
+  transition: all var(--transition-fast);
+}
+
+.achievement-card:hover .btn-view-certificate {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-inverse);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ABOUT & JOURNEY SECTION
    ========================================================================== */
 .about-grid {
   display: grid;
@@ -1358,11 +1489,11 @@ button {
 
 .about-headline {
   font-family: var(--font-display);
-  font-size: clamp(56px, 9vw, 110px);
+  font-size: clamp(56px, 9vw, 105px);
   line-height: 0.85;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .about-text-body {
@@ -1377,47 +1508,38 @@ button {
   font-weight: 600;
 }
 
-.about-facts-list {
+.about-meta-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
-.fact-item {
-  padding: 24px;
-  border-radius: 20px;
-  background: var(--bg-card);
-  border-left: 2px solid var(--accent);
-  border-top: 1px solid var(--line);
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+.about-meta-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--line);
 }
 
-.fact-item:hover {
-  transform: translateX(6px);
-  border-left-color: #ffffff;
+.about-meta-item small {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
-.fact-item b {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.fact-item span {
-  display: block;
+.about-meta-item b {
   font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  color: #fff;
 }
 
-/* Interactive Timeline */
+/* Verified Timeline */
 .timeline-module {
-  margin-top: 36px;
   border-top: 1px solid var(--line);
   padding-top: 24px;
 }
@@ -1436,7 +1558,7 @@ button {
   grid-template-columns: 85px 1fr;
   gap: 20px;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .timeline-year {
@@ -1460,137 +1582,10 @@ button {
 }
 
 /* ==========================================================================
-   VIDEO EDITING & CREATIVE WORK SECTION
-   ========================================================================== */
-.creative-showcase {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 32px;
-  padding: clamp(32px, 5vw, 64px);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(20px);
-}
-
-.creative-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(32px, 5vw, 64px);
-  align-items: center;
-}
-
-.creative-narrative p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 24px;
-}
-
-.creative-stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 28px;
-}
-
-.creative-stat-pill {
-  padding: 14px 20px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--line);
-}
-
-.creative-stat-pill strong {
-  font-family: var(--font-display);
-  font-size: 28px;
-  color: var(--accent);
-  display: block;
-  line-height: 1;
-}
-
-.creative-stat-pill span {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-top: 4px;
-  display: block;
-}
-
-.creative-visual-box {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--line-strong);
-  aspect-ratio: 16 / 9;
-  background: #09071c;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 24px;
-}
-
-.creative-visual-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(204, 255, 0, 0.08), transparent 70%);
-}
-
-.filmstrip-marker {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.creative-headline {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 44px);
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.soundwave-visual {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 28px;
-  margin-top: 18px;
-}
-
-.soundwave-visual span {
-  width: 3px;
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  animation: wavePulse 1.2s infinite ease-in-out alternate;
-}
-
-.soundwave-visual span:nth-child(2) { animation-delay: 0.2s; height: 60%; }
-.soundwave-visual span:nth-child(3) { animation-delay: 0.4s; height: 80%; }
-.soundwave-visual span:nth-child(4) { animation-delay: 0.1s; height: 40%; }
-.soundwave-visual span:nth-child(5) { animation-delay: 0.5s; height: 90%; }
-.soundwave-visual span:nth-child(6) { animation-delay: 0.3s; height: 50%; }
-.soundwave-visual span:nth-child(7) { animation-delay: 0.6s; height: 75%; }
-
-@keyframes wavePulse {
-  0% { transform: scaleY(0.3); opacity: 0.4; }
-  100% { transform: scaleY(1); opacity: 1; }
-}
-
-/* ==========================================================================
-   RESUME CALLOUT & COLLABORATION BANNER
+   RESUME & COLLABORATION CALLOUT
    ========================================================================== */
 .resume-banner {
-  background: linear-gradient(135deg, rgba(20, 16, 48, 0.65) 0%, rgba(8, 6, 24, 0.85) 100%);
+  background: linear-gradient(135deg, #111111 0%, #060606 100%);
   border: 1px solid var(--line-accent);
   border-radius: 32px;
   padding: clamp(40px, 6vw, 72px);
@@ -1601,18 +1596,6 @@ button {
   gap: 36px;
   position: relative;
   overflow: hidden;
-}
-
-.resume-banner::after {
-  content: "";
-  position: absolute;
-  right: -80px;
-  bottom: -80px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(204, 255, 0, 0.1), transparent 70%);
-  pointer-events: none;
 }
 
 .resume-content {
@@ -1664,17 +1647,6 @@ button {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(24px);
-}
-
-.contact-hero-card::before {
-  content: "";
-  position: absolute;
-  top: -150px;
-  right: -150px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(204, 255, 0, 0.07), transparent 70%);
-  pointer-events: none;
 }
 
 .contact-headline {
@@ -1738,7 +1710,6 @@ button {
   box-shadow: 0 10px 30px var(--accent-glow);
 }
 
-/* Quick Copy Email Box */
 .email-copy-bar {
   display: inline-flex;
   align-items: center;
@@ -1746,7 +1717,7 @@ button {
   gap: 20px;
   padding: 12px 20px;
   border-radius: 16px;
-  background: rgba(0, 0, 0, 0.45);
+  background: #000;
   border: 1px solid var(--line);
   max-width: 480px;
   width: 100%;
@@ -1773,7 +1744,6 @@ button {
   padding: 6px 12px;
   border-radius: 8px;
   transition: all var(--transition-fast);
-  white-space: nowrap;
 }
 
 .btn-copy-email:hover {
@@ -1787,7 +1757,7 @@ button {
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 40px var(--container-padding);
-  background: rgba(3, 0, 20, 0.95);
+  background: #050505;
   position: relative;
   z-index: 10;
 }
@@ -1847,12 +1817,12 @@ button {
 }
 
 /* ==========================================================================
-   MODALS — CASE STUDY INSPECTOR & RESUME CV PREVIEW
+   MODALS: PROJECT INSPECTOR, CERTIFICATE LIGHTBOX & RESUME CV
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(3, 0, 20, 0.85);
+  background: rgba(0, 0, 0, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 400;
@@ -1870,14 +1840,14 @@ button {
 }
 
 .modal-window {
-  width: min(760px, 100%);
+  width: min(780px, 100%);
   max-height: 88vh;
   overflow-y: auto;
-  background: var(--bg-surface-elevated);
+  background: #090909;
   border: 1px solid var(--line-strong);
   border-radius: 32px;
   padding: clamp(28px, 5vw, 44px);
-  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.9);
   transform: translateY(24px) scale(0.98);
   transition: transform var(--transition-normal);
   position: relative;
@@ -1943,7 +1913,7 @@ button {
 .modal-info-card {
   padding: 16px 20px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.025);
+  background: #111111;
   border: 1px solid var(--line);
 }
 
@@ -1962,7 +1932,41 @@ button {
   color: var(--text-primary);
 }
 
-/* Toast Feedback */
+/* Certificate Lightbox Specifics */
+.cert-lightbox-window {
+  width: min(840px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #080808;
+  border: 1px solid var(--line-accent);
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-image-container {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cert-lightbox-img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Toast Notice */
 .toast-notice {
   position: fixed;
   bottom: 30px;
@@ -1989,11 +1993,11 @@ button {
   opacity: 1;
 }
 
-/* Scroll Reveal Animations */
+/* Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s var(--ease-cinema), transform 0.85s var(--ease-cinema);
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-cinema), transform 0.8s var(--ease-cinema);
 }
 
 .reveal.visible {
@@ -2002,7 +2006,7 @@ button {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN & MEDIA QUERIES
+   RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -2010,13 +2014,25 @@ button {
     gap: 48px;
   }
   
-  .hero-portrait-frame {
+  .hero-visual-col {
     order: -1;
     max-width: 380px;
     margin: 0 auto;
   }
   
   .project-case {
+    grid-template-columns: 1fr;
+  }
+  
+  .currently-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievements-grid {
     grid-template-columns: 1fr;
   }
   
@@ -2029,12 +2045,9 @@ button {
     position: static;
   }
   
-  .toolkit-grid {
+  .capability-item {
     grid-template-columns: 1fr;
-  }
-  
-  .creative-grid {
-    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
@@ -2051,10 +2064,6 @@ button {
     display: none;
   }
   
-  .project-metrics-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .modal-info-grid {
     grid-template-columns: 1fr;
   }
@@ -2068,7 +2077,7 @@ button {
   }
   
   .timeline-entry {
-    grid-template-columns: 65px 1fr;
+    grid-template-columns: 70px 1fr;
   }
 }
 
@@ -2091,20 +2100,20 @@ button {
 </head>
 
 <body>
-<!-- Subtle Atmospheric Canvas & Lights -->
-<canvas id="cosmos"></canvas>
-<div class="ambient-glow" aria-hidden="true"></div>
-<div class="ambient-glow-bottom" aria-hidden="true"></div>
+<!-- Subtle Geometric Grid Canvas Background -->
+<canvas id="bgCanvas"></canvas>
+<div class="ambient-glow-top" aria-hidden="true"></div>
+<div class="ambient-glow-mid" aria-hidden="true"></div>
 
-<!-- Custom Interactive Magnetic Cursor -->
+<!-- Interactive Magnetic Cursor -->
 <div class="custom-cursor" id="cursorDot" aria-hidden="true"></div>
 <div class="custom-cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
-<!-- Top Dynamic Scroll Progress -->
+<!-- Scroll Progress Line -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- Minimalist Floating Header -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="header-container">
     <a href="#top" class="brand-logo" aria-label="Aryan Raj Home">
       <span>AR</span>
@@ -2113,16 +2122,16 @@ button {
     </a>
     
     <nav class="nav-links" aria-label="Primary Navigation">
-      <a href="#work" class="nav-link">01 // Work</a>
-      <a href="#stack" class="nav-link">02 // Toolkit</a>
-      <a href="#about" class="nav-link">03 // About</a>
-      <a href="#creative" class="nav-link">04 // Creative</a>
-      <a href="#contact" class="nav-link">05 // Contact</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#lab" class="nav-link">Lab</a>
+      <a href="#achievements" class="nav-link">Achievements</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
     
     <div class="header-actions">
-      <a href="mailto:aryanrajrachamalla@gmail.com" class="btn-header-cta">
-        <span>Let's Talk</span>
+      <a href="#contact" class="btn-header-cta">
+        <span>Let's Build</span>
         <span>↗</span>
       </a>
       <button class="btn-menu-trigger" id="menuOpenBtn" aria-label="Open Navigation Menu">
@@ -2136,7 +2145,7 @@ button {
   </div>
 </header>
 
-<!-- Slide-Out Editorial Menu Drawer -->
+<!-- Slide-Out Fullscreen Menu Drawer -->
 <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true">
   <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Site Navigation">
     <div>
@@ -2153,19 +2162,19 @@ button {
       
       <nav class="drawer-nav-list">
         <a href="#work" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">01</span><span>SELECTED WORK</span></a>
-        <a href="#stack" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">02</span><span>TECH TOOLKIT</span></a>
-        <a href="#about" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">03</span><span>BACKGROUND</span></a>
-        <a href="#creative" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">04</span><span>MEDIA & VIDEO</span></a>
+        <a href="#lab" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">02</span><span>WHAT I BUILD</span></a>
+        <a href="#about" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">03</span><span>ABOUT ARYAN</span></a>
+        <a href="#achievements" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">04</span><span>ACHIEVEMENTS</span></a>
         <a href="#resume" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">05</span><span>RESUME / CV</span></a>
-        <a href="#contact" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">06</span><span>CONTACT</span></a>
+        <a href="#contact" class="drawer-nav-item drawer-link"><span class="drawer-nav-index">06</span><span>LET'S BUILD</span></a>
       </nav>
     </div>
     
     <div class="drawer-meta-section">
       <div class="drawer-status-box">
-        <div class="mono text-accent" style="font-size: 10px; letter-spacing: 0.16em;">CURRENT STATUS</div>
-        <div style="font-size: 13px; color: #fff; font-weight: 500;">Open to Summer Internships & Collaborations</div>
-        <div class="mono" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Hyderabad, India · Remote or Hybrid</div>
+        <div class="mono text-accent" style="font-size: 10px; letter-spacing: 0.16em;">CURRENT POSITIONING</div>
+        <div style="font-size: 13px; color: #fff; font-weight: 500;">Creative Developer · AI Builder · CS Student</div>
+        <div class="mono" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Hyderabad, India · Open for Internships & Projects</div>
       </div>
       
       <div class="drawer-social-row">
@@ -2187,64 +2196,64 @@ button {
   <!-- HERO SECTION -->
   <section class="hero-section layout-container">
     <div class="hero-grid">
-      <!-- Left Copy Column -->
+      <!-- Left Editorial Column -->
       <div class="hero-content reveal">
         <div class="hero-meta-bar">
           <div class="hero-pill">
             <span class="pulse-led"></span>
-            <span>SYSTEM ONLINE</span>
+            <span>ARYAN RAJ</span>
           </div>
           <div class="hero-pill">
-            <span>B.TECH CSE · 2025–2029</span>
+            <span>HYDERABAD, INDIA</span>
           </div>
           <div class="hero-pill">
-            <span>HYDERABAD, IN</span>
+            <span>CREATIVE TECHNOLOGIST</span>
           </div>
         </div>
         
         <h1 class="hero-headline">
-          <span class="hero-headline-line">ARYAN</span>
-          <span class="hero-headline-line text-outline">RAJ.</span>
-          <span class="hero-headline-line text-accent">BUILDER.</span>
+          <span class="hero-headline-static">BUILD WITH</span>
+          <span class="hero-headline-rotating">
+            <span class="scramble-word" id="scrambleWord">IMPACT</span>
+          </span>
         </h1>
         
         <p class="hero-description">
-          I am a Computer Science student and creative developer who builds ambitious digital experiences, experiments with modern frontend architecture, and turns ideas into things people can actually use.
+          I build interactive web experiences, AI-powered products and digital experiences where technology meets design.
         </p>
         
         <div class="hero-actions">
           <a href="#work" class="btn-primary">
-            <span>Explore Work</span>
+            <span>View Work</span>
             <span>↓</span>
           </a>
-          <a href="mailto:aryanrajrachamalla@gmail.com" class="btn-secondary">
+          <a href="#contact" class="btn-secondary">
             <span>Let's Connect</span>
             <span>↗</span>
           </a>
+          <a href="Aryan_Raj_Resume.pdf" target="_blank" class="btn-secondary" id="heroResumeBtn">
+            <span>Resume</span>
+            <span>↗</span>
+          </a>
         </div>
-        
-        <a href="#work" class="hero-scroll-indicator" aria-label="Scroll to projects">
-          <div class="scroll-line-container">
-            <div class="scroll-line-fill"></div>
-          </div>
-          <span>SCROLL TO DISCOVER</span>
-        </a>
       </div>
       
-      <!-- Right Editorial Portrait Column -->
-      <div class="hero-portrait-frame reveal">
-        <div class="portrait-canvas-wrapper" id="portraitFrame">
+      <!-- Right Signature Visual Column -->
+      <div class="hero-visual-col reveal">
+        <div class="hero-visual-card" id="portraitCard">
           <div class="portrait-corner-tag top-left">AR // 2026</div>
           <div class="portrait-corner-tag bottom-right">17.385° N · 78.486° E</div>
-          <div class="portrait-overlay-gradient"></div>
           
-          <img src="aryan-photo.jpg" alt="Portrait of Aryan Raj" class="portrait-img" id="heroPhoto" loading="eager">
+          <img src="aryan-photo.jpg" alt="Portrait of Aryan Raj" class="portrait-photo" id="heroPhoto" loading="eager">
+          
+          <!-- Signature 3D WebGL Canvas -->
+          <canvas id="threeCanvas"></canvas>
           
           <div class="portrait-status-badge">
             <span class="pulse-led"></span>
             <div>
               <strong>CREATIVE DEVELOPER</strong>
-              <span>BUILDING DIGITAL EXPERIENCES</span>
+              <span>TECH & DESIGN INTEGRATION</span>
             </div>
           </div>
         </div>
@@ -2252,31 +2261,29 @@ button {
     </div>
   </section>
 
-  <!-- INFINITE EDITORIAL MARQUEE -->
+  <!-- INFINITE TICKER -->
   <div class="marquee-container" aria-hidden="true">
     <div class="marquee-track">
       <div class="marquee-content">
-        <span>DIGITAL EXPERIENCES</span><span class="separator">✦</span>
-        <span class="highlight">CREATIVE TECHNOLOGY</span><span class="separator">✦</span>
-        <span>FRONTEND ARCHITECTURE</span><span class="separator">✦</span>
-        <span class="highlight">PRODUCT THINKING</span><span class="separator">✦</span>
-        <span>NEXT.JS & REACT</span><span class="separator">✦</span>
-        <span class="highlight">VIDEO DIRECTION</span><span class="separator">✦</span>
-        <span>RAPID PROTOTYPING</span><span class="separator">✦</span>
+        <span>INTERACTIVE WEB EXPERIENCES</span><span class="separator">✦</span>
+        <span class="highlight">AI-POWERED PRODUCTS</span><span class="separator">✦</span>
+        <span>CREATIVE TECHNOLOGY</span><span class="separator">✦</span>
+        <span class="highlight">HIGH-RETENTION MOTION</span><span class="separator">✦</span>
+        <span>THREE.JS & REACT</span><span class="separator">✦</span>
+        <span class="highlight">SYSTEM ARCHITECTURE</span><span class="separator">✦</span>
       </div>
       <div class="marquee-content">
-        <span>DIGITAL EXPERIENCES</span><span class="separator">✦</span>
-        <span class="highlight">CREATIVE TECHNOLOGY</span><span class="separator">✦</span>
-        <span>FRONTEND ARCHITECTURE</span><span class="separator">✦</span>
-        <span class="highlight">PRODUCT THINKING</span><span class="separator">✦</span>
-        <span>NEXT.JS & REACT</span><span class="separator">✦</span>
-        <span class="highlight">VIDEO DIRECTION</span><span class="separator">✦</span>
-        <span>RAPID PROTOTYPING</span><span class="separator">✦</span>
+        <span>INTERACTIVE WEB EXPERIENCES</span><span class="separator">✦</span>
+        <span class="highlight">AI-POWERED PRODUCTS</span><span class="separator">✦</span>
+        <span>CREATIVE TECHNOLOGY</span><span class="separator">✦</span>
+        <span class="highlight">HIGH-RETENTION MOTION</span><span class="separator">✦</span>
+        <span>THREE.JS & REACT</span><span class="separator">✦</span>
+        <span class="highlight">SYSTEM ARCHITECTURE</span><span class="separator">✦</span>
       </div>
     </div>
   </div>
 
-  <!-- PROJECTS SECTION — FEATURED CASE STUDIES -->
+  <!-- SELECTED WORK — THE EDITORIAL CENTERPIECE -->
   <section class="section-block layout-container" id="work">
     <div class="editorial-header reveal">
       <div class="editorial-header-top">
@@ -2284,11 +2291,11 @@ button {
           <span class="editorial-kicker-dot"></span>
           <span>01 // Selected Work</span>
         </div>
-        <div class="editorial-index">ARCHIVE 2025–2026</div>
+        <div class="editorial-index">ACTIVE REPOSITORIES</div>
       </div>
-      <h2 class="editorial-title">BUILT, NOT <span class="text-accent">IMAGINED.</span></h2>
+      <h2 class="editorial-title">SELECTED <span class="text-accent">WORK.</span></h2>
       <p class="editorial-subtitle">
-        Curated repositories and case studies from my building journey. Every project is verified with open-source repositories ready for code review and inspection.
+        Engineered case studies showcasing frontend performance, 3D spatial computing, and AI-powered product architecture. Every build is backed by a genuine repository.
       </p>
     </div>
 
@@ -2298,11 +2305,11 @@ button {
         <div class="project-info">
           <div class="project-meta-row">
             <span class="project-number">01 — FEATURED BUILD</span>
-            <span class="project-category">AUTOMOTIVE WEB PLATFORM</span>
+            <span class="project-category">AUTOMOTIVE PLATFORM · 2026</span>
           </div>
           <h3 class="project-title">DRIVIN</h3>
           <p class="project-summary">
-            An automotive-focused digital experience engineered with a modern Next.js/React architecture, reusable component patterns, high-performance styling, and responsive fluid motion.
+            An automotive web experience engineered with a modern Next.js/React architecture, reusable component patterns, high-performance styling, and responsive fluid motion choreography.
           </p>
           <div class="project-tags">
             <span class="project-tag">Next.js</span>
@@ -2313,11 +2320,11 @@ button {
           </div>
           <div class="project-actions">
             <a href="https://github.com/Aryan-2444/Drivin" target="_blank" rel="noreferrer" class="btn-project-repo">
-              <span>View Repository</span>
+              <span>View Project</span>
               <span>↗</span>
             </a>
             <button class="btn-project-inspect inspect-trigger" data-target="drivin">
-              <span>Inspect Architecture</span>
+              <span>Case Study Details</span>
               <span>+</span>
             </button>
           </div>
@@ -2327,18 +2334,18 @@ button {
           <div class="browser-header">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <div class="browser-url-bar">github.com/Aryan-2444/Drivin</div>
-            <div class="browser-telemetry">DEPLOY: PROD</div>
+            <div class="browser-telemetry">PROD DEPLOY</div>
           </div>
           <div class="browser-body">
             <div class="mockup-grid-bg"></div>
             <div class="mockup-inner-content">
               <div class="mockup-badge">UI / MOTION ARCHITECTURE</div>
-              <div class="mockup-heading">DRIVIN AUTOMOTIVE</div>
+              <div class="mockup-heading">DRIVIN VEHICLE EXPERIENCE</div>
             </div>
             <div class="mockup-code-block">
               <div><span class="c-keyword">import</span> { motion } <span class="c-keyword">from</span> <span class="c-str">'framer-motion'</span>;</div>
-              <div><span class="c-keyword">export const</span> <span class="c-accent">AutomotiveHero</span> = () => {</div>
-              <div>&nbsp;&nbsp;<span class="c-keyword">return</span> &lt;<span class="c-accent">VehicleDisplay</span> dynamicMotion={true} /&gt;;</div>
+              <div><span class="c-keyword">export const</span> <span class="c-accent">VehicleDisplay</span> = () => {</div>
+              <div>&nbsp;&nbsp;<span class="c-keyword">return</span> &lt;<span class="c-accent">CanvasMotion</span> responsive={true} /&gt;;</div>
               <div>};</div>
             </div>
           </div>
@@ -2350,11 +2357,11 @@ button {
         <div class="project-info">
           <div class="project-meta-row">
             <span class="project-number">02 — FEATURED BUILD</span>
-            <span class="project-category">WEB APPLICATION ARCHITECTURE</span>
+            <span class="project-category">WEB APPLICATION UI · 2026</span>
           </div>
           <h3 class="project-title">NEXORA</h3>
           <p class="project-summary">
-            A structured web application organized around Next.js App Router conventions, modular hooks, reusable component systems, and utility-first Tailwind design tokens.
+            A modular web application organized around Next.js App Router conventions, custom utility hooks, design system tokens, and strict TypeScript types.
           </p>
           <div class="project-tags">
             <span class="project-tag">Next.js</span>
@@ -2364,11 +2371,11 @@ button {
           </div>
           <div class="project-actions">
             <a href="https://github.com/Aryan-2444/nexora" target="_blank" rel="noreferrer" class="btn-project-repo">
-              <span>View Repository</span>
+              <span>View Project</span>
               <span>↗</span>
             </a>
             <button class="btn-project-inspect inspect-trigger" data-target="nexora">
-              <span>Inspect Architecture</span>
+              <span>Case Study Details</span>
               <span>+</span>
             </button>
           </div>
@@ -2378,48 +2385,49 @@ button {
           <div class="browser-header">
             <div class="browser-dots"><span></span><span></span><span></span></div>
             <div class="browser-url-bar">github.com/Aryan-2444/nexora</div>
-            <div class="browser-telemetry">REACT 19 READY</div>
+            <div class="browser-telemetry">APP ROUTER</div>
           </div>
           <div class="browser-body">
             <div class="mockup-grid-bg"></div>
             <div class="mockup-inner-content">
               <div class="mockup-badge">APPLICATION SYSTEM</div>
-              <div class="mockup-heading">NEXORA PLATFORM</div>
+              <div class="mockup-heading">NEXORA DESIGN SYSTEM</div>
             </div>
             <div class="mockup-code-block">
               <div><span class="c-keyword">interface</span> <span class="c-accent">AppConfig</span> {</div>
               <div>&nbsp;&nbsp;router: <span class="c-str">'app-directory'</span>;</div>
-              <div>&nbsp;&nbsp;performance: <span class="c-accent">'optimized'</span>;</div>
+              <div>&nbsp;&nbsp;theme: <span class="c-accent">'high-contrast'</span>;</div>
               <div>}</div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Project 03: JS-1 -->
-      <article class="project-case reveal" data-project="js1">
+      <!-- Project 03: NOVA -->
+      <article class="project-case reveal" data-project="nova">
         <div class="project-info">
           <div class="project-meta-row">
-            <span class="project-number">03 — LEARNING LAB</span>
-            <span class="project-category">CORE ALGORITHMS & FOUNDATIONS</span>
+            <span class="project-number">03 — 3D INTERACTIVE BUILD</span>
+            <span class="project-category">SPATIAL CANVAS · 2026</span>
           </div>
-          <h3 class="project-title">JS-1</h3>
+          <h3 class="project-title">NOVA</h3>
           <p class="project-summary">
-            A comprehensive JavaScript algorithmic and practice repository documenting core language fundamentals, asynchronous logic, DOM manipulation, and data structure implementations.
+            An immersive spatial computing experiment built with React, Three.js, and React Three Fiber, exploring real-time 3D geometry interaction, custom shaders, and dynamic lighting.
           </p>
           <div class="project-tags">
-            <span class="project-tag">JavaScript ES6+</span>
-            <span class="project-tag">Data Structures</span>
-            <span class="project-tag">Async Patterns</span>
-            <span class="project-tag">Foundations</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Three.js</span>
+            <span class="project-tag">React Three Fiber</span>
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="project-tag">GLSL</span>
           </div>
           <div class="project-actions">
-            <a href="https://github.com/Aryan-2444/js-1" target="_blank" rel="noreferrer" class="btn-project-repo">
-              <span>View Repository</span>
+            <a href="https://github.com/Aryan-2444/portfolio" target="_blank" rel="noreferrer" class="btn-project-repo">
+              <span>View Project</span>
               <span>↗</span>
             </a>
-            <button class="btn-project-inspect inspect-trigger" data-target="js1">
-              <span>Inspect Architecture</span>
+            <button class="btn-project-inspect inspect-trigger" data-target="nova">
+              <span>Case Study Details</span>
               <span>+</span>
             </button>
           </div>
@@ -2428,244 +2436,438 @@ button {
         <div class="project-visual-frame">
           <div class="browser-header">
             <div class="browser-dots"><span></span><span></span><span></span></div>
-            <div class="browser-url-bar">github.com/Aryan-2444/js-1</div>
-            <div class="browser-telemetry">CORE RUNTIME</div>
+            <div class="browser-url-bar">github.com/Aryan-2444/portfolio (nova)</div>
+            <div class="browser-telemetry">WEBGL 2.0</div>
           </div>
           <div class="browser-body">
             <div class="mockup-grid-bg"></div>
             <div class="mockup-inner-content">
-              <div class="mockup-badge">ALGORITHMIC LAB</div>
-              <div class="mockup-heading">JS CORE BASICS</div>
+              <div class="mockup-badge">3D SPATIAL COMPUTING</div>
+              <div class="mockup-heading">NOVA INTERACTIVE SPHERE</div>
             </div>
             <div class="mockup-code-block">
-              <div><span class="c-keyword">const</span> <span class="c-accent">executePipeline</span> = <span class="c-keyword">async</span> (tasks) => {</div>
-              <div>&nbsp;&nbsp;<span class="c-keyword">return await</span> Promise.all(tasks.map(t => t()));</div>
+              <div><span class="c-keyword">import</span> { Canvas } <span class="c-keyword">from</span> <span class="c-str">'@react-three/fiber'</span>;</div>
+              <div><span class="c-keyword">export const</span> <span class="c-accent">SpatialWorld</span> = () => {</div>
+              <div>&nbsp;&nbsp;<span class="c-keyword">return</span> &lt;<span class="c-accent">Canvas</span> camera={{ fov: 75 }}&gt;...&lt;/<span class="c-accent">Canvas</span>&gt;;</div>
               <div>};</div>
             </div>
           </div>
         </div>
       </article>
-    </div>
 
-    <!-- Verified Metrics Banner -->
-    <div class="project-metrics-grid reveal">
-      <div class="metric-cell">
-        <strong>03</strong>
-        <span>Public Core Repositories Showcased</span>
-      </div>
-      <div class="metric-cell">
-        <strong>Next.js</strong>
-        <span>Primary Web Engineering Framework</span>
-      </div>
-      <div class="metric-cell">
-        <strong>SIH '26</strong>
-        <span>Smart India Hackathon Upcoming Track</span>
-      </div>
+      <!-- Project 04: MARKVERSE -->
+      <article class="project-case reveal" data-project="markverse">
+        <div class="project-info">
+          <div class="project-meta-row">
+            <span class="project-number">04 — PRODUCT LAB</span>
+            <span class="project-category">RESOURCE UNIVERSE · 2026</span>
+          </div>
+          <h3 class="project-title">MARKVERSE</h3>
+          <p class="project-summary">
+            A cinematic personal resource and bookmark management universe that transforms flat web links into an interactive 3D spatial knowledge graph.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Vite</span>
+            <span class="project-tag">Three.js</span>
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="project-tag">TypeScript</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Aryan-2444/portfolio" target="_blank" rel="noreferrer" class="btn-project-repo">
+              <span>View Project</span>
+              <span>↗</span>
+            </a>
+            <button class="btn-project-inspect inspect-trigger" data-target="markverse">
+              <span>Case Study Details</span>
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-visual-frame">
+          <div class="browser-header">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url-bar">github.com/Aryan-2444/portfolio (markverse)</div>
+            <div class="browser-telemetry">SPATIAL GRAPH</div>
+          </div>
+          <div class="browser-body">
+            <div class="mockup-grid-bg"></div>
+            <div class="mockup-inner-content">
+              <div class="mockup-badge">KNOWLEDGE UNIVERSE</div>
+              <div class="mockup-heading">MARKVERSE 3D NODES</div>
+            </div>
+            <div class="mockup-code-block">
+              <div><span class="c-keyword">interface</span> <span class="c-accent">UniverseNode</span> {</div>
+              <div>&nbsp;&nbsp;title: <span class="c-str">'Developer Resource'</span>;</div>
+              <div>&nbsp;&nbsp;coordinates: [<span class="c-accent">x, y, z</span>];</div>
+              <div>}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 05: CAREBRIDGE -->
+      <article class="project-case reveal" data-project="carebridge">
+        <div class="project-info">
+          <div class="project-meta-row">
+            <span class="project-number">05 — AI PRODUCT</span>
+            <span class="project-category">HEALTHCARE ASSISTANT · 2026</span>
+          </div>
+          <h3 class="project-title">CAREBRIDGE</h3>
+          <p class="project-summary">
+            An intelligent AI-powered healthcare companion featuring automated prescription analysis, clinical report extraction, routine reminders, and collaborative care circle coordination.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">AI Provider / LLM</span>
+            <span class="project-tag">Tailwind CSS</span>
+            <span class="project-tag">Prescription AI</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/Aryan-2444/portfolio" target="_blank" rel="noreferrer" class="btn-project-repo">
+              <span>View Project</span>
+              <span>↗</span>
+            </a>
+            <button class="btn-project-inspect inspect-trigger" data-target="carebridge">
+              <span>Case Study Details</span>
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="project-visual-frame">
+          <div class="browser-header">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url-bar">github.com/Aryan-2444/portfolio (carebridge)</div>
+            <div class="browser-telemetry">AI RUNTIME</div>
+          </div>
+          <div class="browser-body">
+            <div class="mockup-grid-bg"></div>
+            <div class="mockup-inner-content">
+              <div class="mockup-badge">AI CLINICAL ASSISTANT</div>
+              <div class="mockup-heading">CAREBRIDGE ENGINE</div>
+            </div>
+            <div class="mockup-code-block">
+              <div><span class="c-keyword">const</span> <span class="c-accent">clinicalAnalysis</span> = <span class="c-keyword">await</span> AI.analyze({</div>
+              <div>&nbsp;&nbsp;prescription: <span class="c-str">'clinical_scan.pdf'</span>,</div>
+              <div>&nbsp;&nbsp;format: <span class="c-accent">'structured_routine'</span></div>
+              <div>});</div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- TOOLKIT / TECHNICAL STACK SECTION -->
-  <section class="section-block layout-container" id="stack">
+  <!-- CURRENTLY BUILDING -->
+  <section class="section-block layout-container" id="building">
     <div class="editorial-header reveal">
       <div class="editorial-header-top">
         <div class="editorial-kicker">
           <span class="editorial-kicker-dot"></span>
-          <span>02 // Technical Capabilities</span>
+          <span>02 // Active Pipelines</span>
         </div>
-        <div class="editorial-index">STACK & DISCIPLINES</div>
+        <div class="editorial-index">LIVE SPRINT</div>
       </div>
-      <h2 class="editorial-title">DISCIPLINED <span class="text-accent">TOOLKIT.</span></h2>
+      <h2 class="editorial-title">CURRENTLY <span class="text-accent">BUILDING.</span></h2>
       <p class="editorial-subtitle">
-        A balanced blend of software engineering, creative media, and operational methodology used to conceptualize, design, and ship functional software.
+        Real-world builds currently active in my development environment—shipping features, refining algorithms, and tuning performance.
       </p>
     </div>
 
-    <div class="toolkit-grid">
-      <!-- Engineering -->
-      <div class="toolkit-card reveal">
-        <div class="toolkit-card-header">
-          <span class="toolkit-category-tag">DISCIPLINE 01</span>
-          <h3 class="toolkit-category-title">CORE ENGINEERING</h3>
-          <p class="toolkit-category-desc">Languages, libraries, and frameworks I leverage to architect responsive user interfaces and backend logic.</p>
+    <div class="currently-grid">
+      <div class="currently-card reveal">
+        <div class="currently-card-top">
+          <span class="currently-status-tag"><i class="pulse-led"></i> ACTIVE SPRINT</span>
+          <span class="mono" style="font-size: 11px; color: var(--text-muted);">AI / HEALTH</span>
         </div>
-        <div class="toolkit-tags-flow">
-          <span class="toolkit-pill">Python</span>
-          <span class="toolkit-pill">C</span>
-          <span class="toolkit-pill">JavaScript (ES6+)</span>
-          <span class="toolkit-pill">TypeScript</span>
-          <span class="toolkit-pill">Next.js</span>
-          <span class="toolkit-pill">React</span>
-          <span class="toolkit-pill">Tailwind CSS</span>
-          <span class="toolkit-pill">Basic DSA</span>
+        <div>
+          <h3 class="currently-title">CAREBRIDGE</h3>
+          <p class="currently-desc">
+            Enhancing multi-modal LLM prescription analysis and doctor visit prep workflows with automated clinical timelines.
+          </p>
         </div>
       </div>
 
-      <!-- Creative Technology -->
-      <div class="toolkit-card reveal">
-        <div class="toolkit-card-header">
-          <span class="toolkit-category-tag">DISCIPLINE 02</span>
-          <h3 class="toolkit-category-title">CREATIVE TECHNOLOGY</h3>
-          <p class="toolkit-category-desc">Visual storytelling, video editing, and content strategy that bridge the gap between technical code and human attention.</p>
+      <div class="currently-card reveal">
+        <div class="currently-card-top">
+          <span class="currently-status-tag"><i class="pulse-led"></i> ITERATING</span>
+          <span class="mono" style="font-size: 11px; color: var(--text-muted);">3D / SPATIAL</span>
         </div>
-        <div class="toolkit-tags-flow">
-          <span class="toolkit-pill">Video Editing</span>
-          <span class="toolkit-pill">Short-Form / Reel Direction</span>
-          <span class="toolkit-pill">Pacing & Sound Design</span>
-          <span class="toolkit-pill">Social Media Marketing</span>
-          <span class="toolkit-pill">Trend Analysis</span>
-          <span class="toolkit-pill">Visual Composition</span>
+        <div>
+          <h3 class="currently-title">NOVA</h3>
+          <p class="currently-desc">
+            Prototyping spatial developer tools with custom GLSL lighting shaders and camera motion choreography in Three.js.
+          </p>
         </div>
       </div>
 
-      <!-- Working Methodology -->
-      <div class="toolkit-card reveal">
-        <div class="toolkit-card-header">
-          <span class="toolkit-category-tag">DISCIPLINE 03</span>
-          <h3 class="toolkit-category-title">WORKING STYLE</h3>
-          <p class="toolkit-category-desc">How I solve ambiguities, collaborate in teams, and systematically deconstruct complex engineering problems.</p>
+      <div class="currently-card reveal">
+        <div class="currently-card-top">
+          <span class="currently-status-tag"><i class="pulse-led"></i> REFINING</span>
+          <span class="mono" style="font-size: 11px; color: var(--text-muted);">WEB APP</span>
         </div>
-        <div class="toolkit-tags-flow">
-          <span class="toolkit-pill">Rapid Prototyping</span>
-          <span class="toolkit-pill">Clear Communication</span>
-          <span class="toolkit-pill">Collaborative Teamwork</span>
-          <span class="toolkit-pill">First-Principles Thinking</span>
-          <span class="toolkit-pill">Systematic Debugging</span>
-        </div>
-      </div>
-
-      <!-- Explorations -->
-      <div class="toolkit-card reveal">
-        <div class="toolkit-card-header">
-          <span class="toolkit-category-tag">DISCIPLINE 04</span>
-          <h3 class="toolkit-category-title">CURRENT EXPLORATIONS</h3>
-          <p class="toolkit-category-desc">The next frontier of my growth: expanding from UI prototypes into distributed intelligence and competitive hackathons.</p>
-        </div>
-        <div class="toolkit-tags-flow">
-          <span class="toolkit-pill">AI Systems & Agents</span>
-          <span class="toolkit-pill">Smart India Hackathon '26</span>
-          <span class="toolkit-pill">Advanced Product UI</span>
-          <span class="toolkit-pill">Algorithmic DSA</span>
+        <div>
+          <h3 class="currently-title">MARKVERSE</h3>
+          <p class="currently-desc">
+            Optimizing 3D node graph traversal and cloud bookmark synchronization for developer documentation hubs.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT & JOURNEY SECTION -->
+  <!-- CAPABILITIES / WHAT I BUILD -->
+  <section class="section-block layout-container" id="lab">
+    <div class="editorial-header reveal">
+      <div class="editorial-header-top">
+        <div class="editorial-kicker">
+          <span class="editorial-kicker-dot"></span>
+          <span>03 // Core Capabilities</span>
+        </div>
+        <div class="editorial-index">DISCIPLINE</div>
+      </div>
+      <h2 class="editorial-title">WHAT I <span class="text-accent">BUILD.</span></h2>
+      <p class="editorial-subtitle">
+        Bridging the gap between software engineering, artificial intelligence, and high-fashion creative direction.
+      </p>
+    </div>
+
+    <div class="capabilities-list">
+      <div class="capability-item reveal">
+        <span class="capability-index">01</span>
+        <h3 class="capability-title">WEB EXPERIENCES</h3>
+        <p class="capability-desc">High-performance responsive web applications, modern Next.js/React frontend systems, and scalable UI architectures with zero bloat.</p>
+      </div>
+
+      <div class="capability-item reveal">
+        <span class="capability-index">02</span>
+        <h3 class="capability-title">AI-POWERED PRODUCTS</h3>
+        <p class="capability-desc">Integrating LLM providers, prompt pipelines, automated text/document analysis, and AI-assisted productivity workflows.</p>
+      </div>
+
+      <div class="capability-item reveal">
+        <span class="capability-index">03</span>
+        <h3 class="capability-title">INTERACTIVE INTERFACES</h3>
+        <p class="capability-desc">3D web visuals with Three.js, WebGL canvas shaders, fluid micro-interactions, and spatial user experiences.</p>
+      </div>
+
+      <div class="capability-item reveal">
+        <span class="capability-index">04</span>
+        <h3 class="capability-title">CREATIVE DEVELOPMENT</h3>
+        <p class="capability-desc">Design-engineering synergy, typography-first editorial layouts, brand identity, and motion choreographies.</p>
+      </div>
+
+      <div class="capability-item reveal">
+        <span class="capability-index">05</span>
+        <h3 class="capability-title">VIDEO / CONTENT</h3>
+        <p class="capability-desc">Narrative short-form direction, high-retention video editing, pacing, and visual storytelling with 43K+ organic reach benchmarks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS / CATEGORIZED TECHNICAL STACK -->
+  <section class="section-block layout-container" id="skills">
+    <div class="editorial-header reveal">
+      <div class="editorial-header-top">
+        <div class="editorial-kicker">
+          <span class="editorial-kicker-dot"></span>
+          <span>04 // Technical Toolkit</span>
+        </div>
+        <div class="editorial-index">ARSENAL</div>
+      </div>
+      <h2 class="editorial-title">DISCIPLINED <span class="text-accent">SKILLS.</span></h2>
+      <p class="editorial-subtitle">
+        Categorized technical and creative disciplines used daily to conceptualize, prototype, and ship software.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Development -->
+      <div class="skill-category-card reveal">
+        <div class="skill-cat-header">
+          <span class="skill-cat-tag">ENGINEERING</span>
+          <h3 class="skill-cat-title">DEVELOPMENT</h3>
+        </div>
+        <div class="skill-pills-flow">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">JavaScript (ES6+)</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Next.js</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">HTML / CSS</span>
+          <span class="skill-pill">Tailwind CSS</span>
+          <span class="skill-pill">Core DSA</span>
+        </div>
+      </div>
+
+      <!-- AI / Product -->
+      <div class="skill-category-card reveal">
+        <div class="skill-cat-header">
+          <span class="skill-cat-tag">INTELLIGENCE</span>
+          <h3 class="skill-cat-title">AI / PRODUCT</h3>
+        </div>
+        <div class="skill-pills-flow">
+          <span class="skill-pill">AI-assisted development</span>
+          <span class="skill-pill">Prompt engineering</span>
+          <span class="skill-pill">Automation</span>
+          <span class="skill-pill">Product prototyping</span>
+          <span class="skill-pill">LLM Integration</span>
+          <span class="skill-pill">Workflow Engineering</span>
+        </div>
+      </div>
+
+      <!-- Creative -->
+      <div class="skill-category-card reveal">
+        <div class="skill-cat-header">
+          <span class="skill-cat-tag">MEDIA & DIRECTION</span>
+          <h3 class="skill-cat-title">CREATIVE</h3>
+        </div>
+        <div class="skill-pills-flow">
+          <span class="skill-pill">Video Editing</span>
+          <span class="skill-pill">UI/UX Architecture</span>
+          <span class="skill-pill">Motion Design</span>
+          <span class="skill-pill">Content Creation</span>
+          <span class="skill-pill">Pacing & Sound Design</span>
+          <span class="skill-pill">Visual Storytelling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS — MAJOR 2026 UPDATE -->
+  <section class="section-block layout-container" id="achievements">
+    <div class="editorial-header reveal">
+      <div class="editorial-header-top">
+        <div class="editorial-kicker">
+          <span class="editorial-kicker-dot"></span>
+          <span>05 // Verified Recognition</span>
+        </div>
+        <div class="editorial-index">OFFICIAL MERIT</div>
+      </div>
+      <h2 class="editorial-title">VERIFIED <span class="text-accent">ACHIEVEMENTS.</span></h2>
+      <p class="editorial-subtitle">
+        Documented competitions, hackathons, and athletic distinctions. Every achievement includes authentic verified certificate artwork viewable via the interactive gallery.
+      </p>
+    </div>
+
+    <div class="achievements-grid">
+      <!-- Achievement 01: Technovate 2026 -->
+      <div class="achievement-card reveal" data-cert="technovate">
+        <div>
+          <div class="achievement-header-meta">
+            <span class="achievement-number">01 — 2ND PLACE</span>
+            <span class="achievement-date">15 SEPTEMBER 2026</span>
+          </div>
+          <h3 class="achievement-title">WEB DESIGNING</h3>
+          <div class="achievement-event-name">ENGINEERS’ DAY – TECHNOVATE 2026</div>
+          <p class="achievement-description">
+            Secured 2nd position in the competitive Web Designing event conducted as part of Engineers’ Day – TECHNOVATE 2026, organized by the Department of CSE & SDGI-IIC at Sree Dattha Group of Institutions.
+          </p>
+        </div>
+        <button class="btn-view-certificate cert-trigger" data-cert="technovate">
+          <span>View Certificate</span>
+          <span>→</span>
+        </button>
+      </div>
+
+      <!-- Achievement 02: SIH 2026 -->
+      <div class="achievement-card reveal" data-cert="sih">
+        <div>
+          <div class="achievement-header-meta">
+            <span class="achievement-number">02 — PARTICIPANT</span>
+            <span class="achievement-date">08 SEPTEMBER 2026</span>
+          </div>
+          <h3 class="achievement-title">SMART INDIA HACKATHON</h3>
+          <div class="achievement-event-name">SMART INDIA HACKATHON (SIH) 2026</div>
+          <p class="achievement-description">
+            Actively participated in the Internal Hackathon held on 8 September 2026 as part of Smart India Hackathon (SIH) 2026 at Sree Dattha Group of Institutions, Sheriguda, demonstrating innovative thinking and rapid software engineering skills.
+          </p>
+        </div>
+        <button class="btn-view-certificate cert-trigger" data-cert="sih">
+          <span>View Certificate</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & JOURNEY -->
   <section class="section-block layout-container" id="about">
     <div class="about-grid">
       <!-- Left Narrative Sticky -->
       <div class="about-narrative reveal">
         <div class="editorial-kicker" style="margin-bottom: 16px;">
           <span class="editorial-kicker-dot"></span>
-          <span>03 // Background</span>
+          <span>06 // Narrative</span>
         </div>
         <h2 class="about-headline">
-          STILL<br>
-          <span class="text-accent">BUILDING.</span>
+          ABOUT<br>
+          <span class="text-accent">ARYAN.</span>
         </h2>
         <p class="about-text-body">
-          I'm a <strong>Computer Science & Engineering student</strong> at Sree Dattha Institute who believes the most effective way to understand software is to build it in public.
+          I'm Aryan Raj, a Computer Science student building at the intersection of technology, AI, design and motion.
         </p>
         <p class="about-text-body">
-          I merge technical frontend development with video editing and creative media. I don't just write functions—I care about how typography feels, how interfaces respond, and how a finished product communicates value.
+          I combine strong programming fundamentals in Python, C, JavaScript, and Next.js with high-fashion visual sensibilities and video editing. Every line of code is written to solve real problems while delivering memorable user experiences.
         </p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <span class="hero-pill">STUDENT DEVELOPER</span>
-          <span class="hero-pill">CONTENT CREATOR</span>
-          <span class="hero-pill">HYDERABAD, INDIA</span>
+        
+        <div class="about-meta-list">
+          <div class="about-meta-item">
+            <small>LOCATION</small>
+            <b>HYDERABAD, INDIA</b>
+          </div>
+          <div class="about-meta-item">
+            <small>FOCUS</small>
+            <b>AI / WEB / CREATIVE DEVELOPMENT</b>
+          </div>
+          <div class="about-meta-item">
+            <small>EDUCATION</small>
+            <b>B.TECH CSE (2025–2029)</b>
+          </div>
         </div>
       </div>
 
-      <!-- Right Facts & Timeline -->
+      <!-- Right Milestones & Verified Timeline -->
       <div class="about-details reveal">
-        <div class="about-facts-list">
-          <div class="fact-item">
-            <b>B.Tech — Computer Science & Engineering</b>
-            <span>Sree Dattha Institute of Engineering & Science · 2025–2029. Focus on programming fundamentals, software architecture, and computing systems.</span>
-          </div>
-
-          <div class="fact-item">
-            <b>Content Creator & Video Editor</b>
-            <span>Achieved 43K+ and 13K+ organic views across content campaigns, mastering visual retention, pacing, and digital distribution.</span>
-          </div>
-
-          <div class="fact-item">
-            <b>Verified Achievements</b>
-            <span>1st Prize Winner — Science Exhibition (2025) · Basketball Tournament Championship Winner.</span>
-          </div>
-        </div>
-
         <div class="timeline-module">
-          <div class="timeline-module-title">CHRONOLOGY OF PROGRESS</div>
+          <div class="timeline-module-title">FACTUAL CHRONOLOGY</div>
           
           <div class="timeline-entry">
-            <div class="timeline-year">2025 →</div>
+            <div class="timeline-year">2025</div>
             <div class="timeline-desc">
-              <strong>Initiated CSE Journey</strong>
-              <span>Established deep foundations across programming languages (Python, C, JavaScript), computer architecture, and modern web systems.</span>
+              <strong>B.Tech Computer Science & Engineering</strong>
+              <span>Initiated CSE studies at Sree Dattha Group of Institutions. Built core technical programming foundations in Python, C, algorithms, and web technologies.</span>
+            </div>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="timeline-year">SEP 2026</div>
+            <div class="timeline-desc">
+              <strong>Smart India Hackathon (SIH) 2026 — Participant</strong>
+              <span>Active participation in the Internal Hackathon on 8 September 2026, designing collaborative software solutions.</span>
+            </div>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="timeline-year">SEP 2026</div>
+            <div class="timeline-desc">
+              <strong>TECHNOVATE 2026 — 2nd Place in Web Designing</strong>
+              <span>Awarded 2nd position in the Engineers' Day Web Designing competition on 15 September 2026 for high-performance responsive frontend architecture.</span>
             </div>
           </div>
 
           <div class="timeline-entry">
             <div class="timeline-year">NOW</div>
             <div class="timeline-desc">
-              <strong>Shipping Public Software</strong>
-              <span>Translating conceptual prototypes into structured GitHub repositories, production interfaces, and refined web platforms.</span>
+              <strong>Architecting AI Products & 3D Web</strong>
+              <span>Building CareBridge, Nova, and MarkVerse, actively preparing for ambitious software engineering internships and collaborative products.</span>
             </div>
           </div>
-
-          <div class="timeline-entry">
-            <div class="timeline-year">NEXT</div>
-            <div class="timeline-desc">
-              <strong>SIH '26 & Scaled Products</strong>
-              <span>Targeting competitive hackathons and collaborative software engineering teams to solve real-world industrial problems.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREATIVE WORK / VIDEO EDITING SECTION -->
-  <section class="section-block layout-container" id="creative">
-    <div class="creative-showcase reveal">
-      <div class="creative-grid">
-        <div class="creative-narrative">
-          <div class="editorial-kicker" style="margin-bottom: 14px;">
-            <span class="editorial-kicker-dot"></span>
-            <span>04 // Visual Craft</span>
-          </div>
-          <h2 class="editorial-title" style="font-size: clamp(40px, 6vw, 76px); margin-bottom: 18px;">
-            MOTION & <span class="text-accent">STORYTELLING.</span>
-          </h2>
-          <p>
-            Beyond programming, I edit videos and craft short-form content. Understanding visual pacing, sound design, and retention directly translates into how I engineer UI micro-interactions and digital web experiences.
-          </p>
-          <div class="creative-stats-row">
-            <div class="creative-stat-pill">
-              <strong>43K+</strong>
-              <span>Top Organic Reach</span>
-            </div>
-            <div class="creative-stat-pill">
-              <strong>13K+</strong>
-              <span>Viral Content Views</span>
-            </div>
-            <div class="creative-stat-pill">
-              <strong>High Retention</strong>
-              <span>Editorial Pacing</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="creative-visual-box">
-          <div class="filmstrip-marker">SHOWREEL EDITORIAL PREVIEW</div>
-          <div class="creative-headline">VISUAL PACING</div>
-          <div class="soundwave-visual" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <span class="mono" style="font-size: 10px; color: var(--text-muted); margin-top: 14px;">
-            CRAFTED WITH PRECISION & SOUND DESIGN
-          </span>
         </div>
       </div>
     </div>
@@ -2677,43 +2879,42 @@ button {
       <div class="resume-content">
         <div class="resume-status-line">
           <span class="pulse-led"></span>
-          <span>IMMEDIATE OPPORTUNITIES</span>
+          <span>AVAILABLE FOR INTERNSHIPS & COLLABORATIONS</span>
         </div>
-        <h2 class="resume-title">AVAILABLE FOR INTERNSHIPS & COLLABORATIONS</h2>
+        <h2 class="resume-title">READY TO BUILD SOMETHING AMBITIOUS</h2>
         <p class="resume-desc">
-          Looking for an energetic developer who writes clean code, communicates proactively, and brings creative visual sensibilities to your team? Let's talk.
+          Looking for a proactive developer who bridges AI products, high-performance web engineering, and creative motion? Access my verified resume below.
         </p>
       </div>
 
       <div class="resume-actions">
         <button class="btn-primary" id="openResumeModal">
-          <span>View Resume / CV</span>
+          <span>View Resume Details</span>
           <span>↗</span>
         </button>
-        <a href="#contact" class="btn-secondary">
-          <span>Initiate Discussion</span>
+        <a href="Aryan_Raj_Resume.pdf" download="Aryan_Raj_Resume.pdf" class="btn-secondary">
+          <span>Download Resume (PDF)</span>
           <span>↓</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION — CLOSING DRAMATIC STATEMENT -->
+  <!-- CLOSING STATEMENT / CONTACT -->
   <section class="section-block layout-container" id="contact">
     <div class="contact-hero-card reveal">
       <div class="editorial-kicker">
         <span class="editorial-kicker-dot"></span>
-        <span>05 // Closing Statement</span>
+        <span>07 // Closing Statement</span>
       </div>
       
       <h2 class="contact-headline">
         LET'S<br>
-        BUILD<br>
-        <span class="text-accent">SOMETHING.</span>
+        <span class="text-accent">BUILD.</span>
       </h2>
       
       <p class="contact-statement">
-        Have an internship opening, open-source project, freelance build, or ambitious vision? My inbox is always open for developers, recruiters, and creators.
+        Have an internship opening, AI product idea, freelance build, or creative collaboration? Reach out directly via email or connect across my verified social channels.
       </p>
 
       <div class="contact-channels-grid">
@@ -2743,11 +2944,11 @@ button {
   </section>
 </main>
 
-<!-- MINIMAL EDITORIAL FOOTER -->
+<!-- MINIMAL FOOTER -->
 <footer class="site-footer">
   <div class="footer-content">
     <div class="footer-credits">
-      © 2026 <span>R. ARYAN RAJ</span>. ALL RIGHTS RESERVED.
+      © 2026 <span>ARYAN RAJ</span>. ALL RIGHTS RESERVED.
     </div>
     
     <div class="footer-meta-pill mono">
@@ -2755,37 +2956,48 @@ button {
       <span>HYDERABAD, IN [IST] <b id="footerClock" style="color: #fff;">--:--</b></span>
     </div>
     
-    <a href="#top" class="btn-back-to-top" aria-label="Return to top of page">
+    <a href="#top" class="btn-back-to-top" aria-label="Return to top">
       <span>Top</span>
       <span>↑</span>
     </a>
   </div>
 </footer>
 
-<!-- CASE STUDY INSPECTOR MODAL -->
+<!-- PROJECT CASE STUDY MODAL -->
 <div class="modal-backdrop" id="projectModal" aria-hidden="true">
   <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-head-row">
       <div>
-        <div class="mono text-accent" style="font-size: 11px; letter-spacing: 0.16em;" id="modalLabel">01 // FEATURED BUILD</div>
+        <div class="mono text-accent" style="font-size: 11px; letter-spacing: 0.16em;" id="modalLabel">01 // CASE STUDY</div>
         <h3 class="modal-title" id="modalTitle">Project Title</h3>
       </div>
       <button class="modal-close-btn" id="modalClose" aria-label="Close Project Modal">✕</button>
     </div>
-    <p class="modal-body-text" id="modalText"></p>
+    
+    <p class="modal-body-text" id="modalOverview"></p>
+    
     <div class="modal-info-grid">
       <div class="modal-info-card">
-        <small>Technical Stack</small>
+        <small>The Problem</small>
+        <b id="modalProblem"></b>
+      </div>
+      <div class="modal-info-card">
+        <small>What I Built</small>
+        <b id="modalWhatIBuilt"></b>
+      </div>
+      <div class="modal-info-card">
+        <small>Technology Stack</small>
         <b id="modalStack"></b>
       </div>
       <div class="modal-info-card">
-        <small>Repository Status</small>
-        <b id="modalStatus"></b>
+        <small>Role & Key Outcome</small>
+        <b id="modalOutcome"></b>
       </div>
     </div>
+    
     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
       <a href="#" target="_blank" rel="noreferrer" class="btn-primary" id="modalGithub">
-        <span>Inspect on GitHub</span>
+        <span>Inspect Source on GitHub</span>
         <span>↗</span>
       </a>
       <button class="btn-secondary" id="modalSecondaryClose">
@@ -2795,7 +3007,29 @@ button {
   </div>
 </div>
 
-<!-- RESUME / CV PREVIEW MODAL -->
+<!-- CERTIFICATE LIGHTBOX MODAL -->
+<div class="modal-backdrop" id="certLightboxModal" aria-hidden="true">
+  <div class="cert-lightbox-window" role="dialog" aria-modal="true" aria-labelledby="certLightboxTitle">
+    <div class="modal-head-row" style="margin-bottom: 16px; padding-bottom: 16px;">
+      <div>
+        <div class="mono text-accent" style="font-size: 10px; letter-spacing: 0.18em;" id="certLightboxMeta">VERIFIED CERTIFICATE</div>
+        <h3 class="modal-title" style="font-size: clamp(24px, 4vw, 36px);" id="certLightboxTitle">Certificate Title</h3>
+      </div>
+      <button class="modal-close-btn" id="certLightboxClose" aria-label="Close Certificate View">✕</button>
+    </div>
+
+    <div class="cert-image-container">
+      <img src="" alt="Verified Achievement Certificate" class="cert-lightbox-img" id="certLightboxImg">
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-muted);" class="mono">
+      <span id="certLightboxOrg">Sree Dattha Group of Institutions</span>
+      <span id="certLightboxDate">September 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- RESUME / CV MODAL -->
 <div class="modal-backdrop" id="resumeModal" aria-hidden="true">
   <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
     <div class="modal-head-row">
@@ -2808,40 +3042,41 @@ button {
     
     <div class="modal-body-text">
       <p style="margin-bottom: 20px;">
-        <strong>Computer Science & Engineering Student</strong> · Sree Dattha Institute of Engineering & Science (2025–2029). Creative builder focused on modern frontend architecture, Next.js applications, and video editing.
+        <strong>Computer Science Student · Creative Developer · AI Builder</strong><br>
+        B.Tech in Computer Science & Engineering (2025–2029) at Sree Dattha Group of Institutions, Hyderabad.
       </p>
 
       <div class="modal-info-grid" style="margin-bottom: 24px;">
         <div class="modal-info-card">
           <small>Education</small>
-          <b>B.Tech in CSE (2025–2029)</b>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Sree Dattha Institute, Hyderabad</div>
+          <b>B.Tech CSE (2025–2029)</b>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Sree Dattha Group of Institutions, Hyderabad</div>
         </div>
         <div class="modal-info-card">
-          <small>Core Capabilities</small>
-          <b>Next.js, React, TypeScript, Python</b>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Tailwind, Video Direction, DSA</div>
+          <small>Technical Stack</small>
+          <b>Python, C, JavaScript, TypeScript</b>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">React, Next.js, Three.js, Tailwind, DSA</div>
         </div>
         <div class="modal-info-card">
           <small>Key Projects</small>
-          <b>Drivin, Nexora, JS-1</b>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Public repositories on GitHub</div>
+          <b>Drivin, Nexora, Nova, MarkVerse, CareBridge</b>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Automotive UI, 3D Spatial Canvas, AI Health</div>
         </div>
         <div class="modal-info-card">
-          <small>Achievements</small>
-          <b>1st Prize Science Exhibition (2025)</b>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Basketball Champion · 43K+ Views</div>
+          <small>Verified Achievements</small>
+          <b>2nd Place Web Designing (Technovate '26)</b>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Smart India Hackathon '26 Participant · 43K+ Views</div>
         </div>
       </div>
     </div>
 
     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-      <a href="mailto:aryanrajrachamalla@gmail.com?subject=Opportunity%20Discussion%20-%20Aryan%20Raj" class="btn-primary">
-        <span>Request Full PDF / Discuss Role</span>
-        <span>↗</span>
+      <a href="Aryan_Raj_Resume.pdf" download="Aryan_Raj_Resume.pdf" class="btn-primary">
+        <span>Download Full Resume (PDF)</span>
+        <span>↓</span>
       </a>
-      <a href="https://github.com/Aryan-2444" target="_blank" rel="noreferrer" class="btn-secondary">
-        <span>Inspect GitHub Profile</span>
+      <a href="Aryan_Raj_Resume.pdf" target="_blank" class="btn-secondary">
+        <span>View In Browser</span>
         <span>↗</span>
       </a>
     </div>
@@ -2853,9 +3088,55 @@ button {
 
 <script>
 // ==========================================================================
-// MOTION PREFERENCE & CLIENT TIME
+// SCRAMBLE/DECODE TEXT TRANSITION (HERO ACCENT WORD)
 // ==========================================================================
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scrambleWords = ['IMPACT', 'INTENT', 'MOTION', 'PURPOSE'];
+let currentWordIndex = 0;
+const scrambleElement = document.getElementById('scrambleWord');
+const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+
+function runScrambleTransition(targetWord) {
+  if (!scrambleElement) return;
+  let iteration = 0;
+  const maxIterations = targetWord.length * 4;
+  
+  const interval = setInterval(() => {
+    scrambleElement.textContent = targetWord
+      .split('')
+      .map((char, index) => {
+        if (index < iteration / 4) {
+          return targetWord[index];
+        }
+        return glyphs[Math.floor(Math.random() * glyphs.length)];
+      })
+      .join('');
+
+    iteration++;
+    if (iteration >= maxIterations) {
+      clearInterval(interval);
+      scrambleElement.textContent = targetWord;
+    }
+  }, 35);
+}
+
+setInterval(() => {
+  currentWordIndex = (currentWordIndex + 1) % scrambleWords.length;
+  runScrambleTransition(scrambleWords[currentWordIndex]);
+}, 4000);
+
+// ==========================================================================
+// CLIENT TIME & DYNAMIC SCROLL HEADER
+// ==========================================================================
+const siteHeader = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  if (siteHeader) {
+    if (window.scrollY > 40) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  }
+}, { passive: true });
 
 function updateClocks() {
   try {
@@ -2866,7 +3147,6 @@ function updateClocks() {
     if (drawerClock) drawerClock.textContent = istTime;
     if (footerClock) footerClock.textContent = istTime;
   } catch (e) {
-    // Fallback
     const now = new Date();
     const str = now.toTimeString().split(' ')[0];
     const drawerClock = document.getElementById('drawerClock');
@@ -2879,56 +3159,13 @@ setInterval(updateClocks, 1000);
 updateClocks();
 
 // ==========================================================================
-// CUSTOM MAGNETIC CURSOR
-// ==========================================================================
-const cursorDot = document.getElementById('cursorDot');
-const cursorFollower = document.getElementById('cursorFollower');
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let dotX = mouseX, dotY = mouseY;
-let followerX = mouseX, followerY = mouseY;
-
-window.addEventListener('pointermove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function renderCursor() {
-  dotX += (mouseX - dotX) * 0.7;
-  dotY += (mouseY - dotY) * 0.7;
-  followerX += (mouseX - followerX) * 0.16;
-  followerY += (mouseY - followerY) * 0.16;
-
-  if (cursorDot) {
-    cursorDot.style.left = dotX + 'px';
-    cursorDot.style.top = dotY + 'px';
-  }
-  if (cursorFollower) {
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top = followerY + 'px';
-  }
-
-  requestAnimationFrame(renderCursor);
-}
-
-if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-  requestAnimationFrame(renderCursor);
-
-  document.querySelectorAll('a, button, .project-case, .toolkit-card, .btn-primary, .btn-secondary').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
-}
-
-// ==========================================================================
 // SCROLL PROGRESS BAR
 // ==========================================================================
 const scrollProgress = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
-  const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-  if (totalScroll > 0 && scrollProgress) {
-    const progress = (window.scrollY / totalScroll) * 100;
-    scrollProgress.style.width = progress + '%';
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  if (total > 0 && scrollProgress) {
+    scrollProgress.style.width = ((window.scrollY / total) * 100) + '%';
   }
 }, { passive: true });
 
@@ -2941,42 +3178,41 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.12 });
-
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // ==========================================================================
-// SUBTLE AMBIENT CANVAS BACKGROUND (RESTRAINED & FAST)
+// RESTRAINED BACKGROUND GEOMETRIC PARTICLES (CANVAS)
 // ==========================================================================
-const canvas = document.getElementById('cosmos');
-if (canvas) {
-  const ctx = canvas.getContext('2d');
+const bgCanvas = document.getElementById('bgCanvas');
+if (bgCanvas) {
+  const ctx = bgCanvas.getContext('2d');
   let width, height, dpr;
   let particles = [];
 
-  function resizeCanvas() {
+  function resizeBg() {
     width = window.innerWidth;
     height = window.innerHeight;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
+    bgCanvas.width = width * dpr;
+    bgCanvas.height = height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    const count = Math.min(120, Math.floor((width * height) / 14000));
+    const count = Math.min(75, Math.floor((width * height) / 22000));
     particles = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: 0.5 + Math.random() * 1.5,
-      speedY: 0.05 + Math.random() * 0.18,
-      alpha: 0.08 + Math.random() * 0.35,
-      isAccent: Math.random() < 0.15
+      size: 0.6 + Math.random() * 1.2,
+      speedY: 0.04 + Math.random() * 0.12,
+      alpha: 0.08 + Math.random() * 0.25,
+      isAccent: Math.random() < 0.12
     }));
   }
 
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
+  window.addEventListener('resize', resizeBg);
+  resizeBg();
 
-  function renderCosmos() {
+  function renderBg() {
     ctx.clearRect(0, 0, width, height);
 
     particles.forEach(p => {
@@ -2986,17 +3222,104 @@ if (canvas) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = p.isAccent 
-        ? `rgba(204, 255, 0, ${p.alpha * 0.7})` 
-        : `rgba(255, 255, 255, ${p.alpha})`;
+        ? `rgba(204, 255, 0, ${p.alpha * 0.8})` 
+        : `rgba(255, 255, 255, ${p.alpha * 0.5})`;
       ctx.fill();
     });
 
-    if (!reduceMotion) {
-      requestAnimationFrame(renderCosmos);
+    requestAnimationFrame(renderBg);
+  }
+  renderBg();
+}
+
+// ==========================================================================
+// SIGNATURE 3D ELEMENT (THREE.JS AR MONOGRAM SCULPTURE)
+// ==========================================================================
+const threeCanvas = document.getElementById('threeCanvas');
+if (threeCanvas && typeof THREE !== 'undefined') {
+  try {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+    camera.position.z = 2.8;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: threeCanvas, alpha: true, antialias: true });
+    renderer.setSize(110, 110);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    // Outer Icosahedron Wireframe
+    const geometry = new THREE.IcosahedronGeometry(1.05, 1);
+    const wireframeGeo = new THREE.WireframeGeometry(geometry);
+    const lineMat = new THREE.LineBasicMaterial({ color: 0xCCFF00, transparent: true, opacity: 0.75 });
+    const wireframe = new THREE.LineSegments(wireframeGeo, lineMat);
+    scene.add(wireframe);
+
+    // Inner Solid Core
+    const innerGeo = new THREE.OctahedronGeometry(0.55);
+    const innerMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.25 });
+    const innerCore = new THREE.Mesh(innerGeo, innerMat);
+    scene.add(innerCore);
+
+    let mouseX = 0, mouseY = 0;
+    window.addEventListener('pointermove', (e) => {
+      mouseX = (e.clientX / window.innerWidth) - 0.5;
+      mouseY = (e.clientY / window.innerHeight) - 0.5;
+    });
+
+    function animateThree() {
+      wireframe.rotation.x += 0.007;
+      wireframe.rotation.y += 0.009;
+      innerCore.rotation.x -= 0.012;
+      innerCore.rotation.y -= 0.014;
+
+      wireframe.rotation.y += mouseX * 0.05;
+      wireframe.rotation.x += mouseY * 0.05;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animateThree);
     }
+    animateThree();
+  } catch (err) {
+    console.warn('Three.js initialization gracefully skipped:', err);
+  }
+}
+
+// ==========================================================================
+// CUSTOM CURSOR
+// ==========================================================================
+const cursorDot = document.getElementById('cursorDot');
+const cursorFollower = document.getElementById('cursorFollower');
+let mX = window.innerWidth / 2, mY = window.innerHeight / 2;
+let dX = mX, dY = mY, fX = mX, fY = mY;
+
+window.addEventListener('pointermove', (e) => {
+  mX = e.clientX;
+  mY = e.clientY;
+});
+
+function animateCursor() {
+  dX += (mX - dX) * 0.7;
+  dY += (mY - dY) * 0.7;
+  fX += (mX - fX) * 0.16;
+  fY += (mY - fY) * 0.16;
+
+  if (cursorDot) {
+    cursorDot.style.left = dX + 'px';
+    cursorDot.style.top = dY + 'px';
+  }
+  if (cursorFollower) {
+    cursorFollower.style.left = fX + 'px';
+    cursorFollower.style.top = fY + 'px';
   }
 
-  renderCosmos();
+  requestAnimationFrame(animateCursor);
+}
+
+if (window.matchMedia('(pointer: fine)').matches) {
+  requestAnimationFrame(animateCursor);
+  document.querySelectorAll('a, button, .project-case, .achievement-card, .currently-card, .capability-item').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
 }
 
 // ==========================================================================
@@ -3025,38 +3348,61 @@ if (drawerBackdrop) {
     if (e.target === drawerBackdrop) closeDrawer();
   });
 }
-
-document.querySelectorAll('.drawer-link').forEach(link => {
-  link.addEventListener('click', closeDrawer);
-});
+document.querySelectorAll('.drawer-link').forEach(link => link.addEventListener('click', closeDrawer));
 
 // ==========================================================================
-// CASE STUDY DATA & INSPECTOR MODAL
+// CENTRALIZED PROJECT DATA
 // ==========================================================================
 const projectData = {
   drivin: {
     label: '01 // FEATURED BUILD',
-    title: 'DRIVIN',
-    text: 'An automotive-focused web project utilizing a modern React/Next.js interface, reusable UI components, and fluid Framer Motion choreography. Designed for seamless performance across desktop and mobile viewports with comprehensive repository documentation.',
+    title: 'DRIVIN AUTOMOTIVE',
+    overview: 'An automotive-focused web platform engineered with modern React/Next.js architecture, reusable component patterns, fluid Framer Motion choreography, and high-performance design tokens.',
+    problem: 'Vehicle discovery platforms often suffer from cluttered interfaces, heavy layout shifts, and unresponsive navigation across mobile viewports.',
+    whatIBuilt: 'Architected a responsive interactive vehicle showcase with fluid viewport transitions, modular automotive specs cards, and clean typography hierarchy.',
     stack: 'Next.js · React · TypeScript · Tailwind CSS · Framer Motion',
-    status: 'Public verified repository (Active)',
+    outcome: 'Seamless 60fps interaction pacing, zero layout shifts, and production-ready verified repository.',
     github: 'https://github.com/Aryan-2444/Drivin'
   },
   nexora: {
     label: '02 // FEATURED BUILD',
-    title: 'NEXORA',
-    text: 'A modular web application organized around Next.js App Router patterns, TypeScript static typing, reusable hook architectures, and utility-first Tailwind design tokens. A practical showcase of modern frontend development principles.',
+    title: 'NEXORA PLATFORM',
+    overview: 'A structured web application organized around Next.js App Router conventions, custom utility hooks, modular design tokens, and strict TypeScript types.',
+    problem: 'Modern web applications require clean separation between client-side state and server-side component rendering while keeping bundle sizes minimal.',
+    whatIBuilt: 'Engineered reusable UI architecture, centralized layout providers, optimized hook primitives, and utility-first Tailwind design tokens.',
     stack: 'Next.js · TypeScript · Tailwind CSS · Component Systems',
-    status: 'Public verified repository (Active)',
+    outcome: 'Scalable frontend foundation suitable for rapid enterprise application prototyping.',
     github: 'https://github.com/Aryan-2444/nexora'
   },
-  js1: {
-    label: '03 // LEARNING LAB',
-    title: 'JS-1',
-    text: 'A foundational JavaScript learning and practice repository covering core ES6+ standards, algorithmic exercises, DOM manipulation, asynchronous promises, and data structure fundamentals. Documents the underlying engineering mechanics behind my newer frontend work.',
-    stack: 'JavaScript (ES6+) · Algorithmic Practice · Core Mechanics',
-    status: 'Public learning repository (Active)',
-    github: 'https://github.com/Aryan-2444/js-1'
+  nova: {
+    label: '03 // 3D INTERACTIVE BUILD',
+    title: 'NOVA SPATIAL CANVAS',
+    overview: 'An immersive spatial computing experiment built with React, Three.js, and React Three Fiber, exploring real-time 3D geometry interaction, custom shaders, and lighting.',
+    problem: 'Integrating real-time 3D graphics in web browsers typically creates severe performance bottlenecks and memory leaks on window resizing.',
+    whatIBuilt: 'Designed an interactive 3D spatial interface with dynamic GLSL lighting shaders, camera controllers, and automated WebGL resource disposal.',
+    stack: 'React · Three.js · React Three Fiber · GLSL · Tailwind CSS',
+    outcome: 'High-performance interactive 3D canvas with graceful fallback and low GPU overhead.',
+    github: 'https://github.com/Aryan-2444/portfolio'
+  },
+  markverse: {
+    label: '04 // PRODUCT LAB',
+    title: 'MARKVERSE 3D UNIVERSE',
+    overview: 'A personal resource and bookmark management universe transforming flat developer links into an interactive 3D spatial knowledge graph.',
+    problem: 'Developers accumulate thousands of bookmarks and documentation links that become lost in flat, unorganized browser folders.',
+    whatIBuilt: 'Constructed an interactive 3D node universe with search filtering, categorised clusters, and fast keyboard-driven navigation.',
+    stack: 'React · Vite · Three.js · TypeScript · Tailwind CSS',
+    outcome: 'Intuitive spatial bookmarks interface delivering memorable visual organization.',
+    github: 'https://github.com/Aryan-2444/portfolio'
+  },
+  carebridge: {
+    label: '05 // AI PRODUCT',
+    title: 'CAREBRIDGE AI HEALTH',
+    overview: 'An intelligent AI-powered healthcare assistant platform featuring automated prescription extraction, routine scheduling, and collaborative care circle coordination.',
+    problem: 'Patients and caregivers struggle to decipher complex medical prescriptions and keep track of fragmented clinical visit prep instructions.',
+    whatIBuilt: 'Implemented automated document extraction pipelines, intelligent prescription analyzers, routine timeline builders, and family care circle sync.',
+    stack: 'Next.js · TypeScript · AI Provider / LLM · Tailwind CSS',
+    outcome: 'Structured patient clinical companion that synthesizes prescriptions into actionable daily care routines.',
+    github: 'https://github.com/Aryan-2444/portfolio'
   }
 };
 
@@ -3065,15 +3411,17 @@ const modalClose = document.getElementById('modalClose');
 const modalSecondaryClose = document.getElementById('modalSecondaryClose');
 
 function showProjectModal(key) {
-  const data = projectData[key];
-  if (!data) return;
+  const d = projectData[key];
+  if (!d) return;
 
-  document.getElementById('modalLabel').textContent = data.label;
-  document.getElementById('modalTitle').textContent = data.title;
-  document.getElementById('modalText').textContent = data.text;
-  document.getElementById('modalStack').textContent = data.stack;
-  document.getElementById('modalStatus').textContent = data.status;
-  document.getElementById('modalGithub').href = data.github;
+  document.getElementById('modalLabel').textContent = d.label;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalOverview').textContent = d.overview;
+  document.getElementById('modalProblem').textContent = d.problem;
+  document.getElementById('modalWhatIBuilt').textContent = d.whatIBuilt;
+  document.getElementById('modalStack').textContent = d.stack;
+  document.getElementById('modalOutcome').textContent = d.outcome;
+  document.getElementById('modalGithub').href = d.github;
 
   projectModal.classList.add('open');
   projectModal.setAttribute('aria-hidden', 'false');
@@ -3109,6 +3457,71 @@ if (projectModal) {
 }
 
 // ==========================================================================
+// CENTRALIZED ACHIEVEMENTS DATA & CERTIFICATE LIGHTBOX
+// ==========================================================================
+const achievementsData = {
+  technovate: {
+    title: '2nd Place — Web Designing',
+    event: 'Engineers’ Day – TECHNOVATE 2026',
+    organization: 'Sree Dattha Group of Institutions (Department of CSE & SDGI-IIC)',
+    date: '15 September 2026',
+    category: 'Competition / Web Design',
+    result: '2nd Place',
+    image: 'technovate-2026-certificate.jpeg'
+  },
+  sih: {
+    title: 'Smart India Hackathon — Participant',
+    event: 'Smart India Hackathon (SIH) 2026',
+    organization: 'Sree Dattha Group of Institutions / MoE / AICTE',
+    date: '8 September 2026',
+    category: 'Hackathon',
+    result: 'Participation',
+    image: 'sih-2026-certificate.jpeg'
+  }
+};
+
+const certLightboxModal = document.getElementById('certLightboxModal');
+const certLightboxClose = document.getElementById('certLightboxClose');
+
+function showCertLightbox(key) {
+  const d = achievementsData[key];
+  if (!d) return;
+
+  document.getElementById('certLightboxMeta').textContent = `${d.result.toUpperCase()} // ${d.category.toUpperCase()}`;
+  document.getElementById('certLightboxTitle').textContent = d.title;
+  document.getElementById('certLightboxOrg').textContent = d.organization;
+  document.getElementById('certLightboxDate').textContent = d.date;
+  
+  const imgEl = document.getElementById('certLightboxImg');
+  imgEl.src = d.image;
+  imgEl.alt = `${d.title} — ${d.event}`;
+
+  certLightboxModal.classList.add('open');
+  certLightboxModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideCertLightbox() {
+  certLightboxModal.classList.remove('open');
+  certLightboxModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.cert-trigger').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showCertLightbox(btn.dataset.cert);
+  });
+});
+
+if (certLightboxClose) certLightboxClose.addEventListener('click', hideCertLightbox);
+if (certLightboxModal) {
+  certLightboxModal.addEventListener('click', (e) => {
+    if (e.target === certLightboxModal) hideCertLightbox();
+  });
+}
+
+// ==========================================================================
 // RESUME MODAL
 // ==========================================================================
 const resumeModal = document.getElementById('resumeModal');
@@ -3135,11 +3548,12 @@ if (resumeModal) {
   });
 }
 
-// Global Escape Key Listener for Modals & Drawers
+// Global Escape Key Listener
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeDrawer();
     hideProjectModal();
+    hideCertLightbox();
     hideResumeModal();
   }
 });
